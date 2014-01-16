@@ -2,7 +2,7 @@
 A collection of log handlers that allow file permissions to be specified.
 """
 import logging
-import logging.handlers
+import logging.handlers as handlers
 import os
 
 

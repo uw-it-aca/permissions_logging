@@ -19,7 +19,12 @@ class FileHandler(logging.FileHandler):
 
     def _open(self):
         stream = logging.FileHandler._open(self)
-        os.chmod(self.baseFilename, self.permissions)
+        try:
+            os.chmod(self.baseFilename, self.permissions)
+        except OSError as ex:
+            # If we don't have access to change the permissions, we need to
+            # rely on the initial file creator having done the chmod
+            pass
 
         return stream
 

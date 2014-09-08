@@ -13,7 +13,7 @@ class FileHandler(logging.FileHandler):
     The file used for logging will have the value of the permissions keyword
     value, e.g. for unix:  permissions=0o664
     """
-    def __init__(self, filename, permissions=0o644):
+    def __init__(self, filename, permissions=0o644, **kwargs):
         self.permissions = permissions
         logging.FileHandler.__init__(self, filename, **kwargs)
 
